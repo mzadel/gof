@@ -37,7 +37,7 @@ fi
 BLOBHASH=$(git hash-object -w "$FILENAME")
 TREEHASH=$(echo -e "100644 blob $BLOBHASH\t$FILENAME" | git mktree)
 
-# use subsequent arg as commit message if present
+# use subsequent args as commit message if present
 if [[ $2 ]] ; then
     shift
     COMMITMSG="$*"
