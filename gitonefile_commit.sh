@@ -17,7 +17,7 @@ if [[ ! -e $GIT_DIR ]] ; then git init --bare ; fi
 # bail if the file's the same
 
 # create the blob, tree, checkin object
-BLOBHASH=$(git hash-object -w $FILENAME)
+BLOBHASH=$(git hash-object -w "$FILENAME")
 TREEHASH=$(echo -e "100644 blob $BLOBHASH\t$FILENAME" | git mktree)
 COMMITHASH=$(echo "my commit" | git commit-tree $TREEHASH -p master)
 
