@@ -10,7 +10,7 @@ export GIT_DIR=$FILENAME.gitrepo
 # if repo doesn't exist, create it
 if [[ ! -e $GIT_DIR ]] ; then git init --bare ; INITIALCOMMIT=1 ; fi
 
-# bail if the file's the same
+# FIXME bail if the file's the same
 
 # create the blob and tree
 BLOBHASH=$(git hash-object -w "$FILENAME")
@@ -21,8 +21,10 @@ echo tree $TREEHASH
 # create the checkin object
 # give it a parent if this isn't the first commit
 if [[ $INITIALCOMMIT ]] ; then
+echo INITIALCOMMIT
 COMMITHASH=$(echo my commit | git commit-tree $TREEHASH)
 else
+echo not INITIALCOMMIT
 COMMITHASH=$(echo my commit | git commit-tree $TREEHASH -p master)
 fi
 echo commit $COMMITHASH
