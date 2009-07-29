@@ -9,7 +9,11 @@ if [[ -z $FILENAME ]] ; then echo please supply filename ; exit ; fi
 export GIT_DIR="$FILENAME.git"
 
 # if repo doesn't exist, create it
-if [[ ! -e $GIT_DIR ]] ; then git init -q --bare ; INITIALCOMMIT=1 ; fi
+if [[ ! -e $GIT_DIR ]] ; then
+    echo creating "$GIT_DIR"
+    git init -q --bare
+    INITIALCOMMIT=1
+fi
 
 ## bail if the file's the same
 if [[ ! $INITIALCOMMIT ]] ; then
