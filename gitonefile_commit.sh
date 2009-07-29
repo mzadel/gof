@@ -4,6 +4,15 @@
 # checkinonefile.sh
 #
 
+#
+# basic steps to create the commit:
+#  BLOBHASH=$(git hash-object -w "$FILENAME")
+#  TREEHASH=$(echo -e "100644 blob $BLOBHASH\t$FILENAME" | git mktree)
+#  COMMITHASH=$(echo commitmsg | git commit-tree $TREEHASH -p master)
+#  git update-ref refs/heads/master $COMMITHASH
+#
+
+
 FILENAME="$1"
 if [[ -z $FILENAME ]] ; then echo please supply filename ; exit ; fi
 export GIT_DIR="$FILENAME.git"
