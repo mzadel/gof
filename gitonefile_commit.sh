@@ -4,9 +4,9 @@
 # checkinonefile.sh
 #
 
-FILENAME=$1
+FILENAME="$1"
 if [[ -z $FILENAME ]] ; then echo please supply filename ; exit ; fi
-export GIT_DIR=$FILENAME.git
+export GIT_DIR="$FILENAME.git"
 
 # if repo doesn't exist, create it
 if [[ ! -e $GIT_DIR ]] ; then git init -q --bare ; INITIALCOMMIT=1 ; fi
