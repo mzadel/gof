@@ -34,7 +34,7 @@ git update-ref refs/heads/master $COMMITHASH
 
 
 # other strategy is to create a temp non-existent index file with
-# GIT_INDEX_FILE or equivalent option, then 
+# GIT_INDEX_FILE or equivalent option, then
 # git update-index --add --cacheinfo 100644 83baae61804e65cc73a7201a7252750c76066a30 test.txt
 # then git write-tree ; then git commit-tree
 
