@@ -15,7 +15,7 @@ if [[ ! -e $GIT_DIR ]] ; then
     INITIALCOMMIT=1
 fi
 
-## bail if the file's the same
+# bail if the file's the same
 if [[ ! $INITIALCOMMIT ]] ; then
     PREVFILEHASH=$( git ls-tree master "$FILENAME" | awk '{print $3}' )
     if [[ $(wc -c < "$FILENAME") -eq $(git cat-file -s $PREVFILEHASH) && $(git hash-object --stdin < "$FILENAME") == $PREVFILEHASH ]] ; then
