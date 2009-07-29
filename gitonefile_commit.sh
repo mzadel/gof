@@ -5,10 +5,7 @@
 #
 
 FILENAME=$1
-# temp
 export GIT_DIR=$FILENAME.gitrepo
-# temp
-#export GIT_WORK_TREE=$FILENAME.worktree
 
 # if repo doesn't exist, create it
 if [[ ! -e $GIT_DIR ]] ; then git init --bare ; fi
