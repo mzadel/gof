@@ -28,12 +28,20 @@ fi
 BLOBHASH=$(git hash-object -w "$FILENAME")
 TREEHASH=$(echo -e "100644 blob $BLOBHASH\t$FILENAME" | git mktree)
 
+# use subsequent arg as commit message if present
+if [[ $2 ]] ; then
+    shift
+    COMMITMSG="$*"
+else
+    COMMITMSG=commit
+fi
+
 # create the checkin object
 # give it a parent if this isn't the first commit
 if [[ $INITIALCOMMIT ]] ; then
-    COMMITHASH=$(echo commit | git commit-tree $TREEHASH)
+    COMMITHASH=$(echo "$COMMITMSG" | git commit-tree $TREEHASH)
 else
-    COMMITHASH=$(echo commit | git commit-tree $TREEHASH -p master)
+    COMMITHASH=$(echo "$COMMITMSG" | git commit-tree $TREEHASH -p master)
 fi
 
 # update master branch
