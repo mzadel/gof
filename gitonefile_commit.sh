@@ -11,7 +11,15 @@ export GIT_DIR=$FILENAME.git
 # if repo doesn't exist, create it
 if [[ ! -e $GIT_DIR ]] ; then git init -q --bare ; INITIALCOMMIT=1 ; fi
 
-# FIXME bail if the file's the same
+## bail if the file's the same
+if [[ ! $INITIALCOMMIT ]] ; then
+    PREVFILEHASH=$( git ls-tree master "$FILENAME" | awk '{print $3}' )
+    if [[ $(wc -c < "$FILENAME") -eq $(git cat-file -s $PREVFILEHASH) && $(git hash-object --stdin < "$FILENAME") == $PREVFILEHASH ]]
+    then
+        echo "$FILENAME identical to most recent version; exiting."
+        exit
+    fi
+fi
 
 # create the blob and tree
 BLOBHASH=$(git hash-object -w "$FILENAME")
