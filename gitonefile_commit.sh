@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# checkinonefile.sh
+# gitonefile_commit.sh
 #
 
 #

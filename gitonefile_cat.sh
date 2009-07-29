@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# catsaved.sh
+# gitonefile_cat.sh
 #
 
 FILENAME="$1"
