@@ -5,10 +5,11 @@
 #
 
 FILENAME=$1
+if [[ -z $FILENAME ]] ; then echo please supply filename ; exit ; fi
 export GIT_DIR=$FILENAME.gitrepo
 
 # if repo doesn't exist, create it
-if [[ ! -e $GIT_DIR ]] ; then git init --bare ; INITIALCOMMIT=1 ; fi
+if [[ ! -e $GIT_DIR ]] ; then git init -q --bare ; INITIALCOMMIT=1 ; fi
 
 # FIXME bail if the file's the same
 
