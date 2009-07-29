@@ -18,8 +18,7 @@ fi
 ## bail if the file's the same
 if [[ ! $INITIALCOMMIT ]] ; then
     PREVFILEHASH=$( git ls-tree master "$FILENAME" | awk '{print $3}' )
-    if [[ $(wc -c < "$FILENAME") -eq $(git cat-file -s $PREVFILEHASH) && $(git hash-object --stdin < "$FILENAME") == $PREVFILEHASH ]]
-    then
+    if [[ $(wc -c < "$FILENAME") -eq $(git cat-file -s $PREVFILEHASH) && $(git hash-object --stdin < "$FILENAME") == $PREVFILEHASH ]] ; then
         echo "$FILENAME identical to most recent version; exiting."
         exit
     fi
