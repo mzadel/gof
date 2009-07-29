@@ -6,10 +6,9 @@
 
 FILENAME=$1
 # temp
-FILENAME=bla
 export GIT_DIR=$FILENAME.gitrepo
 # temp
-export GIT_WORK_TREE=$FILENAME.worktree
+#export GIT_WORK_TREE=$FILENAME.worktree
 
 # if repo doesn't exist, create it
 if [[ ! -e $GIT_DIR ]] ; then git init --bare ; fi
@@ -18,8 +17,11 @@ if [[ ! -e $GIT_DIR ]] ; then git init --bare ; fi
 
 # create the blob, tree, checkin object
 BLOBHASH=$(git hash-object -w "$FILENAME")
+echo blob $BLOBHASH
 TREEHASH=$(echo -e "100644 blob $BLOBHASH\t$FILENAME" | git mktree)
+echo tree $TREEHASH
 COMMITHASH=$(echo "my commit" | git commit-tree $TREEHASH -p master)
+echo commit $COMMITHASH
 
 # update master branch
 git update-ref refs/heads/master $COMMITHASH
