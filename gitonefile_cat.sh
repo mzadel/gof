@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# checkinonefile.sh
+# catsaved.sh
 #
 
 FILENAME="$1"
