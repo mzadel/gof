@@ -32,9 +32,9 @@ TREEHASH=$(echo -e "100644 blob $BLOBHASH\t$FILENAME" | git mktree)
 # create the checkin object
 # give it a parent if this isn't the first commit
 if [[ $INITIALCOMMIT ]] ; then
-    COMMITHASH=$(echo my commit | git commit-tree $TREEHASH)
+    COMMITHASH=$(echo commit | git commit-tree $TREEHASH)
 else
-    COMMITHASH=$(echo my commit | git commit-tree $TREEHASH -p master)
+    COMMITHASH=$(echo commit | git commit-tree $TREEHASH -p master)
 fi
 
 # update master branch
