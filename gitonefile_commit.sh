@@ -17,6 +17,9 @@ FILENAME="$1"
 if [[ -z $FILENAME ]] ; then echo please supply filename ; exit ; fi
 export GIT_DIR="$FILENAME.git"
 
+# bail if file doesn't exist
+if [[ ! -e $FILENAME ]] ; then echo file $FILENAME does not exist ; exit ; fi
+
 # if repo doesn't exist, create it
 if [[ ! -e $GIT_DIR ]] ; then
     echo creating "$GIT_DIR"
