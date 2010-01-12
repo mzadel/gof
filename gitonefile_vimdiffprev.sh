@@ -20,4 +20,7 @@ git show master:"$FILENAME" > $TEMPFILENAME
 vimdiff "$FILENAME" $TEMPFILENAME
 rm $TEMPFILENAME
 
+# the other option is to use the other scripts:
+# gofcat "$FILENAME" > $TEMPFILENAME && vimdiff "$FILENAME" $TEMPFILENAME && rm $TEMPFILENAME
+
 # vim:sw=4:et:ai:ic
