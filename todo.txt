@@ -1,0 +1,7 @@
+
+publish
+just include the main script and call it gofci; have all the other functionality as bash functions
+include the documentation and the bash functions in the one file -> so installation is copying it into search path and installing the bash functions
+ in documentation, can tell people to season to taste (eg add in values for the different author env variables etc)
+maybe convert from rcs into a git tree and publish that as well
+
