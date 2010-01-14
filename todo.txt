@@ -8,3 +8,7 @@ maybe convert from rcs into a git tree and publish that as well
 
 include the procedure for converting the file + gof directory into a regular repo (checkin changes && copy .git dir && git checkout)
 
+distribution:
+ put on github
+ have three files: main gofci script, a list of functions you can include in your .bashrc, and a readme
+
