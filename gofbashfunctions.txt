@@ -1,8 +1,7 @@
 
-alias gofci=gitonefile_commit.sh
-function goflog { GIT_DIR="$1".git git log ; } # trailing semicolon necessary
-#alias gofcat=gitonefile_cat.sh
-function gofcat { GIT_DIR="$1".git git show master:"$1" ; } # more succint and does the same job
-alias gofvdp=gitonefile_vimdiffprev.sh
+# include these functions in your .bashrc
+
+function goflog { GIT_DIR="$1".git git log ; }
+function gofcat { GIT_DIR="$1".git git show master:"$1" ; }
 function gofdiff { GIT_DIR="$1".git git diff master:"$1" "$1"; }
 
