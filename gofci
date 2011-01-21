@@ -12,7 +12,6 @@
 #  git update-ref refs/heads/master $COMMITHASH
 #
 
-
 FILENAME="$1"
 if [[ -z $FILENAME ]] ; then echo please supply filename ; exit ; fi
 export GIT_DIR="$FILENAME.git"
@@ -60,21 +59,20 @@ fi
 git update-ref refs/heads/master $COMMITHASH
 
 
-
+#
 # consider setting these env variables
-#GIT_AUTHOR_NAME
-#GIT_AUTHOR_EMAIL
-#GIT_AUTHOR_DATE
-#GIT_COMMITTER_NAME
-#GIT_COMMITTER_EMAIL
-#GIT_COMMITTER_DATE
-
-
+#  GIT_AUTHOR_NAME
+#  GIT_AUTHOR_EMAIL
+#  GIT_AUTHOR_DATE
+#  GIT_COMMITTER_NAME
+#  GIT_COMMITTER_EMAIL
+#  GIT_COMMITTER_DATE
+#
+#
 # other strategy is to create a temp non-existent index file with
 # GIT_INDEX_FILE or equivalent option, then
 # git update-index --add --cacheinfo 100644 83baae61804e65cc73a7201a7252750c76066a30 test.txt
 # then git write-tree ; then git commit-tree
-
-
+#
 
 # vim:sw=4:et:ai:ic
