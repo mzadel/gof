@@ -3,6 +3,9 @@
 #
 # gofvimdiff
 #
+# This script works with gofci; it diffs the current working version of the
+# file against the most recently committed version using vimdiff.
+#
 
 TEMPFILENAME=/var/tmp/gofvimdiff.temp
 
