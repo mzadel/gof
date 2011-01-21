@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #
-# gitonefile_vimdiffprev.sh
+# gofvimdiff
 #
 
-TEMPFILENAME=/var/tmp/gitonefile_vimdiffprev.temp
+TEMPFILENAME=/var/tmp/gofvimdiff.temp
 
 FILENAME="$1"
 if [[ -z $FILENAME ]] ; then echo please supply filename ; exit ; fi
