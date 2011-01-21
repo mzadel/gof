@@ -24,7 +24,7 @@ Include the following functions in your .bashrc:
 
     gofci <thefile> [commit message]
 
-Check in the file.  You can supply an optional commit message (which may in
+Check in the file.  You can supply an optional commit message (which may be in
 quotes if you want).  The first time `gofci` is run, it creates a repository
 for your file and then commits the file.  (The default commit message is just
 "commit".)  So I usually just use it as
