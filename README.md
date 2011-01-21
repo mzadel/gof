@@ -24,10 +24,10 @@ Include the following functions in your .bashrc:
 
     gofci <thefile> ["commit message"]
 
-Check in the file.  You can supply an optional commit message.  The first time
-`gofci` is run, it creates a repository for your file and then commits the
-file.  (The default commit message is just "commit".)  So I usually just use it
-as
+Check in the file.  You can supply an optional commit message in quotes.  The
+first time `gofci` is run, it creates a repository for your file and then
+commits the file.  (The default commit message is just "commit".)  So I usually
+just use it as
 
     gofci myfile.txt
 
